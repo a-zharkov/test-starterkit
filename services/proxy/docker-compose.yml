@@ -1,0 +1,15 @@
+version: "3"
+services:
+    klickly-proxy:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        container_name: "klickly-proxy"
+        environment:
+            - PROXY_SSH_USERNAME=alex
+            - PROXY_SSH_PORT=8090
+
+networks:
+    default:
+        external:
+            name: klickly-network

@@ -1,0 +1,30 @@
+version: '3'
+services:
+    app1-api:
+        container_name: "klickly-app1"
+        image: "node:12.20.1"
+        working_dir: /usr/src/app
+        command: bash -c "npm install && npm run start"
+        volumes:
+            - ./app1/:/usr/src/app/
+        environment:
+            - PORT=8081
+        ports:
+            - "3000:8081"
+
+    app2-api:
+        container_name: "klickly-app2"
+        image: "node:12.20.1"
+        working_dir: /usr/src/app
+        command: bash -c "npm install && npm run start"
+        volumes:
+            - ./app2/:/usr/src/app/
+        environment:
+            - PORT=8081
+        ports:
+            - "4000:8081"
+
+networks:
+    default:
+        external:
+            name: klickly-network
