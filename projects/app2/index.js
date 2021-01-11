@@ -6,6 +6,9 @@ const port = process.env.PORT || 3000;
 const schema = new mongoose.Schema({}, { strict: false });
 const Post = mongoose.model('Post', schema);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', async(req, res) => {
     const posts = await Post.find({}).lean().exec();
     res.json(posts);
@@ -17,6 +20,6 @@ app.post('/', async(req, res) => {
 })
 
 app.listen(port, async () => {
-    await mongoose.connect('mongodb://mongodb:27017/klickly-test');
+    await mongoose.connect('mongodb://172.17.0.1:27018/klickly-test', { useNewUrlParser: true });
     console.log(`Example app listening at http://localhost:${port}`)
 })
