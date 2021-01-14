@@ -23,6 +23,8 @@ services:
             - PORT=8081
         ports:
             - "4000:8081"
+        extra_hosts:
+          - "localnode:172.17.0.1"
 
 networks:
     default:

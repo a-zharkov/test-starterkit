@@ -20,6 +20,6 @@ app.post('/', async(req, res) => {
 })
 
 app.listen(port, async () => {
-    await mongoose.connect('mongodb://172.17.0.1:27018/klickly-test', { useNewUrlParser: true });
+    await mongoose.connect('mongodb://localnode:27018/klickly-test', { useNewUrlParser: true });
     console.log(`Example app listening at http://localhost:${port}`)
 })

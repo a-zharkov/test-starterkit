@@ -3,8 +3,11 @@ const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 3000;
 
-const serviceURL = 'http://172.17.0.1:4000';
-const serviceURL2 = 'http://app2-api:8081';
+const serviceURL2 = 'http://172.17.0.1:4000';
+const serviceURL = 'http://127.0.0.1:4000';
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', async(req, res) => {
 	try {

@@ -4,7 +4,7 @@ services:
         build:
             context: ./
             dockerfile: ./Dockerfile
-        container_name: "klickly-proxy"
+        container_name: "klickly-proxy-test"
         environment:
             - PROXY_SSH_USERNAME=alex
             - PROXY_SSH_PORT=8090
